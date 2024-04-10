@@ -13,6 +13,7 @@ int main()
    for(i = 0; i<n; i++) 
    {
       cout<<"The Array Index is = \t"<<i<<"\t \t The Array Value is : \t"<<arr[i]<<endl;
+  cout<<endl;
    }
    while(j < n)						//search method
    {
