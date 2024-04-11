@@ -1,1 +1,85 @@
-#include 
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+float calculateGpa(float marks);
+
+int main() {
+    float marks[7];
+    float calGpa[7];
+    float ml[7];
+    int creditHour[] = { 3, 2, 3, 3, 3, 1, 1 };
+    string subject[] = { "P.F", "I.C.T", "Maths", "English", "Physics" };
+    string Lab[] = { "Pf Lab", "ICT-lab" };
+    float tot = 0;
+
+    cout << fixed << setprecision(2);
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Enter the Number of " << subject[i] << ": ";
+        cin >> marks[i];
+        calGpa[i] = calculateGpa(marks[i]);
+    }
+
+    for (int a = 0; a < 2; a++) {
+        cout << "Enter the marks of " << Lab[a] << ": ";
+        cin >> marks[a + 5];
+        float num = (marks[a + 5] / 50.0f) * 100.0f;
+        marks[a + 5] = num;
+        calGpa[a + 5] = calculateGpa(num);
+    }
+
+    cout << "Subject\tMarks\tGPA\tCreditHour" << endl;
+
+    for (int j = 0; j < 5; j++) {
+        cout << subject[j] << "\t";
+        cout << marks[j] << "\t";
+        cout << calGpa[j] << "\t";
+        cout << creditHour[j] << endl;
+
+        ml[j] = calGpa[j] * creditHour[j];
+        tot += ml[j];
+    }
+
+    for (int b = 0; b < 2; b++) {
+        cout << Lab[b] << "\t";
+        cout << marks[5 + b] << "\t";
+        cout << calGpa[5 + b] << "\t";
+        cout << creditHour[5 + b] << endl;
+
+        ml[5 + b] = calGpa[5 + b] * creditHour[5 + b];
+        tot += ml[5 + b];
+    }
+
+    float gpa = tot / 16;
+    cout << "Your Gpa is " << gpa << endl;
+    cout << "Thanks for using this Program!" << endl;
+    
+    return 0;
+}
+
+float calculateGpa(float marks) {
+    if (marks >= 85 && marks <= 100) {
+        return 4.0f;
+    } else if (marks >= 80) {
+        return 3.70f;
+    } else if (marks >= 75) {
+        return 3.3f;
+    } else if (marks >= 70) {
+        return 3.0f;
+    } else if (marks >= 65) {
+        return 2.7f;
+    } else if (marks >= 61) {
+        return 2.3f;
+    } else if (marks >= 58) {
+        return 2.0f;
+    } else if (marks >= 55) {
+        return 1.7f;
+    } else if (marks >= 50) {
+        return 1.0f;
+    } else {
+        return 0.0f;
+    }
+}
