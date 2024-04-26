@@ -1,17 +1,24 @@
 #include<iostream>
 using namespace std;
-
+void printArray(int arr[],int n){
+	cout<<"The Elements are :"<<endl;
+	for (int i = 0 ;i<n;i++){
+		cout<<" "<<arr[i];
+	}
+	cout<<endl;
+}
+void InputArray(int arr[],int n){
+	cout<<"Enter the elements you want to enter"<<endl;
+	for (int i = 0 ;i<n;i++){
+		cin>>arr[i];
+	}
+	cout<<endl;}
 int main() 
 {
-   int arr[] = {1,3,5,7,9};
-   int n = 5;
-   int i = 0; 
-   
-   cout<<"The Array Elements Are : "<<endl;
-   
-   for(i = 0; i < n; i++) 
-   {
-      cout<<"The Array Index is = \t"<<i<<"\t \t The Array Value is : \t"<<arr[i]<<endl;
-   }
+ cout<<"Total elements ?"<<endl;
+ int c;
+ cin>>c; int arr[c];
+ InputArray(arr,c);
+ printArray(arr,c);
    return 0;
 }
