@@ -1,1 +1,19 @@
 
+#include <iostream>
+using namespace std;
+int factorial(int n){
+	if( n == 0 || n==1){
+		return 1;
+	}
+	else {
+		int result = n*factorial(n-1);
+	}
+}
+int main(){
+	cout<<"Enter the Number to \nfind the factorial of ?"<<endl;
+	int a;
+	cin>>a;
+	int tem = factorial(a);
+	cout<<"The Factorial of the Number is ::"<<tem<<endl;
+	return 0;
+}
